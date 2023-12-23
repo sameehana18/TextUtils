@@ -32,7 +32,7 @@ export default function TextForm(props) {
   const [text, setText] = useState("Enter text here");
   return (
     <>
-      <div className="container">
+      <div className="container" style={{color: props.mode==='dark'?'white':'#02041f'}}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
@@ -41,6 +41,7 @@ export default function TextForm(props) {
             value={text}
             onChange={handleOnChange}
             rows="8"
+            style={{backgroundColor: props.mode==='dark'?'grey':'white', color: props.mode==='dark'?'white':'black'}}
           ></textarea>
         </div>
         <button className="btn btn-primary mx-1" onClick={handleUpClick}>
@@ -56,12 +57,12 @@ export default function TextForm(props) {
           Copy to clipboard
         </button>
       </div>
-      <div className="container my-3">
+      <div className="container my-3" style={{color: props.mode==='dark'?'white':'#02041f'}}>
         <h2>Your text summary</h2>
         <p>{text.split(" ").length} words, {text.length} characters</p>
         <p>{0.008 * text.split(" ").length} Minutes read</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter your text"}</p>
       </div>
     </>
   );

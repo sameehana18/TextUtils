@@ -5,16 +5,19 @@ export default function TextForm(props) {
     // console.log("uppercase was clicked" + text);
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Text converted to Uppercase", "success");
   };
 
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Text converted to Lowercase", "success");
   };
 
   const handleClearClick = () => {
     let newText = '';
     setText(newText);
+    props.showAlert("Text has been cleared", "success");
   };
 
   const handleCopyClick = async () => {
@@ -22,7 +25,7 @@ export default function TextForm(props) {
     s = String(s);
 
     await navigator.clipboard.writeText(s);
-    alert('copied to clipboard');
+    props.showAlert("Text copied to clipboard", "success");
   };  
   
   const handleOnChange = (event) => {

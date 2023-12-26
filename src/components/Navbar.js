@@ -2,6 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
+  const capitalize = (word) => {
+    const lower = word.toLowerCase();
+    return lower.charAt(0).toUpperCase() + lower.slice(1);
+  };
+
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
@@ -45,7 +50,11 @@ export default function Navbar(props) {
               Search
             </button>
           </form> */}
-          <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+          <div
+            className={`form-check form-switch text-${
+              props.mode === "light" ? "dark" : "light"
+            }`}
+          >
             <input
               className="form-check-input"
               type="checkbox"
@@ -53,8 +62,11 @@ export default function Navbar(props) {
               id="flexSwitchCheckDefault"
               onClick={props.toggleMode}
             />
-            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-              {props.mode==='light'?'dark':'light'} Mode
+            <label
+              className="form-check-label"
+              htmlFor="flexSwitchCheckDefault"
+            >
+              {props.mode === "light" ? capitalize("dark") : capitalize("light")} Mode
             </label>
           </div>
         </div>

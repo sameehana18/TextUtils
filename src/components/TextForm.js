@@ -44,19 +44,19 @@ export default function TextForm(props) {
             value={text}
             onChange={handleOnChange}
             rows="8"
-            style={{backgroundColor: props.mode==='dark'?'grey':'white', color: props.mode==='dark'?'white':'black'}}
+            style={{backgroundColor: props.mode==='dark'?'#13466e':'white', color: props.mode==='dark'?'white':'black'}}
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick} disabled={text.length===0}>
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick} disabled={text.length===0}>
           Convert to Lowercase
         </button>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick} disabled={text.length===0}>
           Clear text
         </button>
-        <button className="btn btn-primary mx-1 my-1" onClick={handleCopyClick}>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleCopyClick} disabled={text.length===0}>
           Copy to clipboard
         </button>
       </div>

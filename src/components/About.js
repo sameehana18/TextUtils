@@ -26,7 +26,7 @@ export default function About(props) {
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
-              aria-expanded="true"
+              aria-expanded="false"
               aria-controls="collapseOne"
               style={myStyle}
             >
